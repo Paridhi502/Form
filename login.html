@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      function validateform(event){
+        event.preventDefault();
+        const password=document.getElementById("password").value;
+        const hasUppercase = /[A-Z]/.test(password); 
+            const hasLowercase = /[a-z]/.test(password); 
+            const hasNumber = /[0-9]/.test(password);    
+            const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password); 
+            const isValidLength = password.length >= 8; 
+
+            if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar || !isValidLength) {
+                let errorMessage = "Password must have:\n";
+                if (!isValidLength) errorMessage += "- At least 8 characters\n";
+                if (!hasUppercase) errorMessage += "- At least one uppercase letter\n";
+                if (!hasLowercase) errorMessage += "- At least one lowercase letter\n";
+                if (!hasNumber) errorMessage += "- At least one number\n";
+                if (!hasSpecialChar) errorMessage += "- At least one special character (!@#$%^&*)\n";
+                alert(errorMessage);
+                return; 
+            }
+            alert("You have successfully signed up!");
+
+      }
+    </script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        padding-bottom: 300px;
+      }
+      .header{
+        display: flex;
+        justify-content: center; /* Horizontally center items */
+        align-items: center; /* Vertically center items */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-color: grey;
+      }
+    .two,.three{
+        display: block;
+      margin-bottom: 5px;
+      width: 300px;
+      height: 20px;
+      font-size: 15px;
+    }
+    .tick{
+      display: inline-block;
+    }
+    .text{
+      display: inline-block;
+    }
+    .img1{
+        margin-left: 20px;
+        margin-right: 100px;
+        display: inline-block;
+        margin-top: 100px;
+        
+    }
+     .info{
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 50px;
+     } 
+     .b{
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: purple;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+     }
+     .b:hover{
+        opacity:0.5;
+     }
+     .b:active{
+        opacity:1;
+        background-color: darkorchid;
+     }
+     .b1{
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: rgb(56, 54, 54);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+     }
+     .b1:hover{
+        opacity:0.5;
+     }
+     .b1:active{
+        opacity:1;
+     }
+     .b2{
+      background-color: grey;
+      position: absolute;
+      border-style: none;
+      color: aliceblue;
+      height: 30px;
+     }
+     .b2:hover{
+      opacity: 0.15;
+      background-color: #6d28d2;
+     }
+     .b2:active{
+      opacity: 1;
+     }
+     .b3{
+      background-color: white;
+      position: absolute;
+      border-color: purple;
+      color: purple;
+      left:1020px;
+      width: 70px;
+      height: 30px;
+     }
+     .b4{
+      background-color: purple;
+      position: absolute;
+      border-color: purple;
+      color: white;
+      left:1100px;
+      width: 70px;
+      height: 30px;
+     }
+
+    </style>
+  </head>
+  <body>
+    <div class="header" style="background-color: grey;">
+      <div style="position: absolute; left: 10px;font-size: large;"><b>EduSphere</b></div>
+      <div><img src="thumbnail/icons8-education-48.png" style="position: absolute; left: 105px;top:0;"></div>
+      <input type="text" style="position:absolute;left: 200px;width:350px;height: 25px;" placeholder="Search...">
+      <button style="position: absolute;left: 520px;"><i class="fas fa-search"></i></button>
+      <button class="b2" style="left: 570px;">Plans and Pricing</button>
+      <button class="b2" style="left: 700px;">EduSphere Business</button>
+      <button class="b2" style="left: 850px;">Teach on EduSphere</button>
+      <button class="b3">Log In</button>
+      <button class="b4">Sign Up</button>
+      <button style="
+    position: absolute; 
+    right: 10px; 
+    top: 5px; 
+    border: none; 
+    background: none; 
+    cursor: pointer; 
+    padding: 0;">
+  <img 
+    src="thumbnail/icons8-circled-user-male-skin-type-4-48.png" 
+    alt="Profile Icon" 
+    style="width: 40px; height: 40px;">
+</button>
+
+    </div>
+    <div class="img1">
+        <img style="width: 600px;"src="thumbnail/i.jpg">
+    </div>
+    <div class="info">
+      <p style="text-align: center;font-size: large;font-style: italic; margin-top: 50px; margin-bottom: 20px;">Sign Up and Start Learning Today</p>
+      <form onsubmit="validateform(event)">
+      <input class="two" type="email" placeholder="Email Id" style="width: 350px;height: 30px;" required>
+      <input class="three" id="password" type="password" placeholder="Password" style="width: 350px;height: 30px;" required>
+      <div>
+        <input class="tick"type="checkbox">
+        <p class="text" style="font-size: small;">Sign up for our offers, promotions and weekly newsletters</p>
+      </div>
+      <button class="b">Login</button>
+      </form>
+    </div>
+
+  </body>
+</html>
